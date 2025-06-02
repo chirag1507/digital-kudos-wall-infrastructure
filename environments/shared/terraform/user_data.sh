@@ -25,7 +25,7 @@ version: '3.8'
 
 services:
   frontend:
-    image: ${frontend_image}
+    image: \\${FRONTEND_IMAGE_URI_WITH_TAG:-${frontend_image}}
     ports:
       - "${frontend_port}:80"
     environment:
@@ -36,7 +36,7 @@ services:
       - backend
 
   backend:
-    image: ${backend_image}
+    image: \\${BACKEND_IMAGE_URI_WITH_TAG:-${backend_image}}
     ports:
       - "${backend_port}:3001"
     environment:
